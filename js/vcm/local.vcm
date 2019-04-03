@@ -1,0 +1,29 @@
+<style type="text/css">
+.local {padding:2px;box-shadow:0 0 0 1px #C00 inset;}
+</style>
+
+<template>
+<div class="local">
+    <local-sub></local-sub>
+    Local : {{content}}
+</div>
+</template>
+
+<script>
+function $(){
+
+    'use strict';
+
+    this.options = {
+        template : this.template,
+        data : function(){
+            return {
+                content : 'local'
+            };
+        },
+        components : {
+            'local-sub' : this.local('local-sub.vcm')
+        },
+    };
+}
+</script>

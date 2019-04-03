@@ -1,0 +1,36 @@
+<style type="text/css" scoped>
+.singleton/*[]*/ {padding:2px;box-shadow:0 0 0 1px #000 inset;}
+</style>
+
+<template>
+<div class="singleton">
+    Singleton : {{content}}
+</div>
+</template>
+
+<script>
+function $(){
+
+    'use strict';
+
+    this.options = {
+        template : this.template,
+        data : function(){
+            return {
+                content : 'singleton'
+            };
+        },
+    };
+
+    this.export = function($vue){
+
+        $vue.test = function(){
+            console.log('[Singleton] Vue.test', this.$el);
+        }.bind(this);
+
+        $vue.prototype.test = function(){
+            console.log('[Singleton] Component.test', this.$el);
+        }.bind(this);
+    };
+}
+</script>

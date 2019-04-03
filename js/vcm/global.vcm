@@ -1,0 +1,27 @@
+<style type="text/css" scoped="ss-global">
+.global/*[]*/ {padding:2px;box-shadow:0 0 0 1px #CCC inset;}
+.global/*[#]*/ {}
+.global/*[@]*/ {}
+</style>
+
+<template>
+<div class="global">
+    Global : {{content}}
+</div>
+</template>
+
+<script>
+function $(){
+
+    'use strict';
+
+    this.options = {
+        template : this.template,
+        data : function(){
+            return {
+                content : 'global'
+            };
+        },
+    };
+}
+</script>

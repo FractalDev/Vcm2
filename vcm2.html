@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vcm 2.0</title>
+    <style type="text/css">
+    </style>
+    <script src="js/es6-promise.auto.js"></script>
+    <script src="js/axios-0.19.0.js"></script>
+    <script src="js/vue-2.6.8.js"></script>
+    <script src="js/vcm-2.0.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+
+        Vcm.singleton('js/vcm/singleton.vcm');
+        Vcm.global('global', 'js/vcm/global.vcm');
+
+        let app = new Vue({
+            el : '#app',
+            data : {
+
+            },
+            components : {
+                'local' : Vcm.local('js/vcm/local.vcm')
+            },
+            methods : {
+                click_area : function(){
+                    Vue.test();
+                    this.test();
+                }
+            }
+        });
+
+    });
+    </script>
+</head>
+<body>
+<div id="app">
+    <local></local>
+    <global></global>
+    <div @click="click_area">Click Area</div>
+</div>
+</body>
+</html>
